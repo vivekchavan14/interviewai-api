@@ -1,0 +1,44 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+env/
+
+# Flask cache files
+instance/
+*.pyc
+
+# Environment variables and configs
+.env
+*.env
+
+# Flask specific files
+*.log
+
+# Mac OS specific files
+.DS_Store
+
+# Pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Jupyter Notebook checkpoints (if any)
+.ipynb_checkpoints/
+
+# Logs and reports
+*.log
+*.out
+*.err
+reports/
+
+# PyCharm project files
+.idea/
+
+# VS Code project files
+.vscode/
