@@ -1,0 +1,5 @@
+Flask
+Flask-SQLAlchemy
+python-dotenv
+wheel
+psycopg2-binary
