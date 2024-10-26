@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
@@ -14,7 +15,7 @@ def create_app():
 
     # Configure the database URI from environment variables
     database_url = os.getenv("DATABASE_URL")
-    print(database_url)
+    print(f"Database URL: {database_url}")  # Useful for debugging
     if not database_url:
         raise ValueError("DATABASE_URL environment variable not found")
     app.config["SQLALCHEMY_DATABASE_URI"] = database_url
@@ -22,15 +23,19 @@ def create_app():
 
     # Initialize the database with the Flask app
     db.init_app(app)
+    
+    # Enable CORS for all routes, specify origins if needed
+    CORS(app) 
 
     # Import and register blueprints (update path if needed)
-    from .app import main as main_blueprint
+    from .app import main as main_blueprint  # Ensure correct import path
     app.register_blueprint(main_blueprint)
 
     # Create database tables if they don't exist
     with app.app_context():
         try:
             db.create_all()
+            print("Database tables created successfully.")
         except Exception as e:
             print(f"Error creating database tables: {e}")
 
