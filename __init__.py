@@ -4,6 +4,7 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -29,7 +30,10 @@ def create_app():
 
     # Import and register blueprints (update path if needed)
     from .app import main as main_blueprint  # Ensure correct import path
+    from .interview import bp as interview_blueprint
     app.register_blueprint(main_blueprint)
+    app.register_blueprint(interview_blueprint, url_prefix='/api/interview')
+    #app.register_blueprint(interview, url_prefix='/api')
 
     # Create database tables if they don't exist
     with app.app_context():
