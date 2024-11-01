@@ -7,7 +7,5 @@ flask-cors
 google-cloud-aiplatform
 google-cloud-speech
 google-cloud-texttospeech
-google-cloud-vertex-ai
 speechrecognition
 pyttsx3
-vertexai

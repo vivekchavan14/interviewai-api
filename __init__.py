@@ -4,7 +4,6 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
-
 # Load environment variables from .env file
 load_dotenv()
 
@@ -16,7 +15,7 @@ def create_app():
 
     # Configure the database URI from environment variables
     database_url = os.getenv("DATABASE_URL")
-    print(f"Database URL: {database_url}")  # Useful for debugging
+    #print(f"Database URL: {database_url}")  # Useful for debugging
     if not database_url:
         raise ValueError("DATABASE_URL environment variable not found")
     app.config["SQLALCHEMY_DATABASE_URI"] = database_url
@@ -33,7 +32,6 @@ def create_app():
     from .interview import bp as interview_blueprint
     app.register_blueprint(main_blueprint)
     app.register_blueprint(interview_blueprint, url_prefix='/api/interview')
-    #app.register_blueprint(interview, url_prefix='/api')
 
     # Create database tables if they don't exist
     with app.app_context():

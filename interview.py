@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from ai import palm
+from .ai import palm
 import speech_recognition as sr
 import pyttsx3
 

@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request # type: ignore
+from flask import Blueprint, jsonify, request
 from .models import db, Interview  
 
 # Define the blueprint
